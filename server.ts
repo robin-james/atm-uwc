@@ -25,19 +25,33 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
+  server.get('*', async (req, res, next) => {
 
-    commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-      })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+    if(req.path == '/'){
+      const { protocol, originalUrl, baseUrl, headers } = req;
+
+      commonEngine
+        .render({
+          bootstrap,
+          documentFilePath: indexHtml,
+          url: `${protocol}://${headers.host}${originalUrl}`,
+          publicPath: browserDistFolder,
+          providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+        })
+        .then((html) => {
+        // res.status(404)
+         res.send(html)
+        })
+        .catch((err) => next(err));
+    }else{
+
+      const reponse = await fetch('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app');
+      const data = await reponse.json();
+      res.status(404)
+      res.json(data)
+       
+    }
+    
   });
 
   return server;
