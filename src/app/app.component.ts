@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { bootstrapApplication } from '@angular/platform-browser';
+import { Observable, tap } from 'rxjs';
+import { provideHttpClient } from '@angular/common/http';
+import { APP_INITIALIZER } from '@angular/core';
 
 import { adgLoader, adgDomain, adgVariables, adgSiteId,adgHomepage,adgRoutes,adgSiteMetadata } from './shared/signals';
+
+
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -14,13 +22,11 @@ import { adgLoader, adgDomain, adgVariables, adgSiteId,adgHomepage,adgRoutes,adg
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
-  title = 'atm-uwc';
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient, private router:Router){}
 
   ngOnInit(): void {
     this.initializeApp()
-    console.log('test')
   }
 
   initializeApp(){
@@ -60,8 +66,6 @@ export class AppComponent implements OnInit{
             adgRoutes.set(routes)
   
             var dox = window.location.pathname
-  
-
             
            // router.navigateByUrl(dox)
   
@@ -75,4 +79,8 @@ export class AppComponent implements OnInit{
   
   }
 }
+
+
 }
+
+
