@@ -26,10 +26,10 @@ export function app(): express.Express {
 
   // All regular routes use the Angular engine
   server.get('*', async (req, res, next) => {
+    const { protocol, originalUrl, baseUrl, headers } = req;
 
     if(req.path == '/'){
-      const { protocol, originalUrl, baseUrl, headers } = req;
-
+     
       commonEngine
         .render({
           bootstrap,
@@ -39,16 +39,41 @@ export function app(): express.Express {
           providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
         })
         .then((html) => {
-        // res.status(404)
          res.send(html)
         })
         .catch((err) => next(err));
     }else{
 
-      const reponse = await fetch('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app');
-      const data = await reponse.json();
-      res.status(404)
-      res.json(data)
+      var routes : any[] = []
+
+      const reponse : any = await fetch('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app');
+
+      const siteMetadata = await reponse.json()
+      siteMetadata.mapping.forEach((element : any) => {
+
+      routes.push('/'+element.loc)
+        
+      });
+
+      if(routes.includes(req.path)){
+        commonEngine
+        .render({
+          bootstrap,
+          documentFilePath: indexHtml,
+          url: `${protocol}://${headers.host}${originalUrl}`,
+          publicPath: browserDistFolder,
+          providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+        })
+        .then((html) => {
+         res.send(html)
+        })
+        .catch((err) => next(err));
+      }else{
+        res.status(404)
+        res.json(routes)
+      }
+      
+    
        
     }
     
