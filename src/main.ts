@@ -1,48 +1,33 @@
-import { APP_INITIALIZER, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { bootstrapApplication } from '@angular/platform-browser';
-import {
-  HttpClient,
-  HttpClientModule,
-  provideHttpClient,
-  withFetch,
-} from '@angular/common/http';
-import { Observable, of, take, tap } from 'rxjs';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable, tap, from } from 'rxjs';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { APP_INITIALIZER } from '@angular/core';
 
-export function initializeApp(http: HttpClient) {
 
-  setTimeout(()=>{
-    return (): Observable<any> =>
-    http
-      .get('https://651ec54444a3a8aa4768fa35.mockapi.io/user')
-      .pipe(tap((data) => console.log(data)));
-  },5000)
+
   
-}
-
-@Component({
-  selector: 'my-app',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <h1>Hello from {{ name }}!</h1>
-    <a target="_blank" href="https://angular.io/start">
-      Learn more about Angular
-    </a>
-  `,
-})
-export class App {
-  name = 'Angular 16';
-}
-
-bootstrapApplication(App, {
-  providers: [
-    provideHttpClient(withFetch()),
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeApp,
-      multi: true,
-      deps: [HttpClient],
-    },
-  ],
-});
+  export function initializeUserData(http: HttpClient, router: Router) {
+    return (): Observable<void> =>
+      http
+        .get('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app')
+        .pipe(tap((data:any) => console.log(data)));
+  }
+  
+  bootstrapApplication(AppComponent, {
+    providers: [
+      provideHttpClient(),
+      provideRouter(routes),
+      {
+        provide: APP_INITIALIZER,
+        useFactory: initializeUserData,
+        multi: true,
+        deps: [HttpClient, Router],
+      },
+    ],
+  }).catch(err => console.error(err));

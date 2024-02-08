@@ -2,16 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { Observable, tap } from 'rxjs';
-import { provideHttpClient } from '@angular/common/http';
-import { APP_INITIALIZER } from '@angular/core';
+
 
 import { adgLoader, adgDomain, adgVariables, adgSiteId,adgHomepage,adgRoutes,adgSiteMetadata } from './shared/signals';
-
-
-
-
 
 
 @Component({
