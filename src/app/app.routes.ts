@@ -3,6 +3,7 @@ import { ContentComponent } from './components/content/content.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
+    /*
     {
         path:'', component:ContentComponent, data: { homepage: true }
     },
@@ -15,5 +16,5 @@ export const routes: Routes = [
     {
         path:'**', component:PageNotFoundComponent
     }
-
+*/
 ];

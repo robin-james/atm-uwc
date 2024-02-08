@@ -12,11 +12,16 @@ import { APP_INITIALIZER } from '@angular/core';
 
 
   
-  export function initializeUserData(http: HttpClient, router: Router) {
-    return (): Observable<void> =>
+  export function initializeUserData(http: HttpClient) {
+    return new Promise<void>((resolve) =>{
       http
-        .get('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app')
-        .pipe(tap((data:any) => console.log('*** INIT ***',data)));
+      .get('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app')
+      .pipe(tap((data:any) => {
+        console.log('*** INIT ***',data)
+        resolve()
+      }));
+    })
+    
   }
   
   bootstrapApplication(AppComponent, {
