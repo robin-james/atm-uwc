@@ -69,7 +69,7 @@ export function app(): express.Express {
         })
         .catch((err) => next(err));
       }else{
-        
+        res.status(404)
         commonEngine
         .render({
           bootstrap,
@@ -83,7 +83,7 @@ export function app(): express.Express {
          res.send(html)
         })
         .catch((err) => next(err));
-        res.json(routes)
+       // res.json(routes)
       }
       
     
