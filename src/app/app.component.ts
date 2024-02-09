@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { effect } from '@angular/core';
-import { _signalSiteMetadata } from './shared/signals';
+import { _signalSiteMetadata, _signalLoader } from './shared/signals';
 import { MetaService } from './shared/meta.service';
 
 
@@ -17,8 +17,16 @@ import { MetaService } from './shared/meta.service';
 
 export class AppComponent {
 
+  loaded : boolean = true
+
   constructor(private meta:MetaService){
 
+    effect(()=>{
+    
+      if(_signalLoader()=='end'){
+        this.loaded = false
+      }
+    })
    
 
 

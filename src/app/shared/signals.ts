@@ -19,7 +19,8 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
 
         if (typeof window !== 'undefined') {
           _signalLoader.update(() => 'pre end')
-            
+          resolve()
+       
             var domain = window.location.host
     
     
@@ -36,14 +37,9 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
             .get(url)
             .subscribe((res: any) => {
     
-              console.log('*** INIT SITE WITH ***', res)
-              _signalSiteMetadata.set(res)
-    
-              //init variables
-              _signalVariables.set(res.variables)
-              _signalHomepage.set(res.homepage)
-              console.log(res.homepage)
              
+              _signalSiteMetadata.set(res)
+
               //init routes
               const mapping = res.mapping
               let routes: any = [];
@@ -60,8 +56,15 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
             
              
               router.navigateByUrl(dox)
+    
+              //init variables
+              _signalVariables.set(res.variables)
+              _signalHomepage.set(res.homepage)
+            
              
-              resolve()
+              
+             
+            
             
             })}
     })

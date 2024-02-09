@@ -48,7 +48,6 @@ export class ContentComponent implements OnInit {
   }
   ngOnInit(): void {
    
-    console.log(this.loaded)
     if (this.domain == '') {
       console.log('localhost')
 
@@ -103,8 +102,8 @@ export class ContentComponent implements OnInit {
         this.htmlFront = data.htmlFront
         _signalLoader.update(() => 'end')
         this.loaded = true
-        
-        this.setMeta(data.name, data.title, data.metadescription, data.keywords)
+   
+        this.setMeta(data.metadata.name, data.metadata.title, data.metadata.metadescription, data.metadata.keywords)
       }
       
     })
