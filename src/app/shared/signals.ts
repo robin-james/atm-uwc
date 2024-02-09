@@ -19,7 +19,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
 
         if (typeof window !== 'undefined') {
           _signalLoader.update(() => 'pre end')
-       
+          resolve()
        
             var domain = window.location.host
     
@@ -36,7 +36,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
             http
             .get(url)
             .subscribe((res: any) => {
-         
+    
              
               _signalSiteMetadata.set(res)
 
@@ -60,7 +60,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
               //init variables
               _signalVariables.set(res.variables)
               _signalHomepage.set(res.homepage)
-              resolve()
+            
              
               
              
