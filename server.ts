@@ -25,7 +25,7 @@ export function app(): express.Express {
    
     const d = req.header("x-forwarded-host")!.toString()
   
-    const _redirectURL= `https://`+d 
+    const _redirectURL= "http://example.com"
    
     res.redirect(301, _redirectURL);
   
@@ -34,7 +34,7 @@ export function app(): express.Express {
    
     const d = req.header("x-forwarded-host")!.toString()
   
-    const _redirectURL= `https://`+d 
+    const _redirectURL= "http://example.com" 
    
     res.redirect(301, _redirectURL);
   
