@@ -2,6 +2,13 @@
     "version": 2,
     "public": true,
     "name": "atm-uwc",
+    "redirects": [
+      { 
+        "source": "/index.html",
+        "destination": "/", 
+        "statusCode": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "/(.*)",
