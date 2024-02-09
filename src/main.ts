@@ -1,36 +1,29 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, withFetch } from '@angular/common/http';
 import { Router, withDisabledInitialNavigation } from '@angular/router';
-import { Observable, tap, from } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { APP_INITIALIZER } from '@angular/core';
-
+import { initApp } from './app/shared/signals';
+import { provideClientHydration } from '@angular/platform-browser';
 
 
   
-  export function initializeUserData(http: HttpClient) {
-    return new Promise<void>((resolve) =>{
-      http
-      .get('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app')
-      .pipe(tap((data:any) => {
-        console.log('*** INIT ***',data)
-        resolve()
-      }));
-    })
-    
-  }
-  
+  export function initializeApp(http: HttpClient, router: Router) {
+    return () => initApp(http,router)
+    }
+
   bootstrapApplication(AppComponent, {
     providers: [
-      provideHttpClient(),
+      provideClientHydration(),
+      provideHttpClient(withFetch()),
       provideRouter(routes, withDisabledInitialNavigation()),
       {
         provide: APP_INITIALIZER,
-        useFactory: initializeUserData,
+        useFactory: initializeApp,
         multi: true,
         deps: [HttpClient, Router],
       },
