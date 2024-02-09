@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --body-font-family : 'arial';
+    --color-primary : blue;
+}
+body{
+    font-family: var(--body-font-family);
+}

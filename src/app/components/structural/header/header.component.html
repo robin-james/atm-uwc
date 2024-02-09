@@ -1,0 +1,117 @@
+<div class="adg-navbar">
+    <div class="adg-content-bloc row">
+
+        <div (click)="navigateToHome()">
+            <img [src]=logoUrl class="adg-navbar-logo" alt="logo du site">
+        </div>
+
+
+        <div class="adg-navbar-navigation">
+
+            <a class="adg-navigation-box" *ngFor="let item of _navigationFire.item" aria-controls="navigationDrawer">
+                <span class="material-symbols-outlined" *ngIf="item.icon != ''" aria-controls="navigationDrawer">
+                    {{item.icon}}
+                </span>
+
+                <a class="adg-navigation-boxe" *ngIf="item.haveSubLabel" (click)="displaySubNavigation(item)"
+                    routerLinkActive="adg-navigation-box-active" routerLink="{{item.path}}"
+                    ariacontrols="navigationDrawer" disable="true">
+                    {{item.label}}
+                    <span class="material-symbols-outlined" aria-controls="navigationDrawer">
+                        expand_more
+                    </span></a>
+                <a class="adg-navigation-boxe" *ngIf="!item.haveSubLabel" (click)="navigate(item.path)"
+                    routerLinkActive="adg-navigation-box-active" routerLink="{{item.path}}"
+                    ariacontrols="navigationDrawer">{{item.label}}</a>
+
+            </a>
+
+            <div *ngFor="let CTA of _navigationFire.CTAs">
+                <div [ngClass]="CTA.class" (click)="navigate(CTA.path)">
+                    <span class="material-symbols-outlined" *ngIf="CTA.haveIcon">
+                        {{CTA.icon}}
+                    </span>
+                    {{CTA.label}}
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="adg-mobile-navbar-navigation" *ngIf="!noMenu">
+            <div RouterLinkDisabledDirective="true">
+
+            </div>
+            <span *ngIf="!dpMobileMenu" class="material-symbols-outlined" (click)="displayMobileMenu()">
+                menu
+            </span>
+            <span *ngIf="dpMobileMenu" class="material-symbols-outlined" (click)="displayMobileMenu()">
+                close
+            </span>
+        </div>
+        <div *ngIf="noMenu" class="adg-mobile-navbar-navigation" >
+
+            <div *ngFor="let CTA of _navigationFire.CTAs">
+                <div [ngClass]="CTA.class" (click)="navigate(CTA.path)">
+                    <span class="material-symbols-outlined" *ngIf="CTA.haveIcon">
+                        {{CTA.icon}}
+                    </span>
+                    {{CTA.label}}
+                </div>
+    
+    
+            </div>
+
+
+
+        </div>
+    
+
+
+    </div>
+
+</div>
+<div *ngIf="dpMobileMenu" class="adg-mobile-navigation">
+    <div>
+        <div class="adg-navigation-box" *ngFor="let item of _navigationFire.item">
+            <div class="adg-navigation-item">
+                <span class="material-symbols-outlined" *ngIf="item.haveIcon">
+                    {{item.icon}}
+                </span>
+                <a *ngIf="!item.haveSubLabel" (click)="navigate(item.path)">{{item.label}}</a>
+                <a *ngIf="item.haveSubLabel" (click)="displaySubNavigation(item)">{{item.label}}</a>
+            </div>
+            <div class="adg-line"></div>
+
+        </div>
+    </div>
+    <div class="adg-column center">
+        <div *ngFor="let CTA of _navigationFire.CTAs" class="item-space">
+            <div [ngClass]="CTA.class" (click)="navigate(CTA.path)">
+                <span class="material-symbols-outlined" *ngIf="CTA.haveIcon">
+                    {{CTA.icon}}
+                </span>
+                {{CTA.label}}
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="dpSubNavigation" class="adg-subnavigation">
+    <div>
+        <span class="material-symbols-outlined" (click)="SubNavigationBack()">
+            arrow_back_ios
+        </span>
+        <h2 (click)="navigate('/'+subLabel)">{{subLabel}}</h2>
+        <div class="adg-navigation-box" *ngFor="let item of subNavigation">
+            <div class="adg-navigation-item">
+                <span class="material-symbols-outlined" *ngIf="item.haveIcon">
+                    {{item.icon}}
+                </span>
+                <a (click)="navigate(item.path)">{{item.label}}</a>
+            </div>
+            <div class="adg-line"></div>
+
+        </div>
+    </div>
+
+</div>

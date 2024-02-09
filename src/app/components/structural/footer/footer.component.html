@@ -1,0 +1,42 @@
+<div class="adg-footer">
+    <div class="adg-container">
+
+        <div class="adg-row__1-2">
+            <div>
+                <div class="adg-footer-logo">
+                    <img [src]=logoUrl  class="adg-footer-logo" alt="logo du site">
+                </div>
+                <p class="title-medium">{{_details.name}}</p>
+                <p class="body-medium">{{_details.address}}</p>
+                <p class="body-medium">{{_details.zipCode}} {{_details.city}}</p>
+                <p></p>
+                <p class="body-medium">{{_details.phone}}</p>
+                <p class="body-medium">{{_details.mail}}</p>
+        
+            </div>
+        </div>
+    <div class="adg-row__1-2">
+        <div class="adg-container">
+            <div class="adg-column__1-2" *ngFor="let footer of _footer">
+                <p class="title-medium">{{footer.title}}</p>
+                <p class="body-medium" *ngFor="let content of footer.content">{{content}}</p>
+               
+            </div>
+            
+
+
+
+        </div>
+ 
+    </div>
+    </div>
+ 
+  
+   
+</div>
+<div class="adg-footer-last">
+    <div class="adg-container x-center">
+    <p>© 2023 ADANGO</p>
+</div>
+
+</div>

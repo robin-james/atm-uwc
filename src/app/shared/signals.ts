@@ -4,13 +4,13 @@ import { Router } from "@angular/router";
 import { ContentComponent } from "../components/content/content.component";
 import { PageNotFoundComponent } from "../components/page-not-found/page-not-found.component";
 
-export const adgRoutes = signal([''])
-export const adgDomain  = signal('')
-export const adgLoader  = signal('start')
-export const adgSiteMetadata  = signal({})
-export const adgSiteId  = signal('')
-export const adgHomepage = signal('')
-export const adgVariables = signal(null)
+export const _signalRoutes = signal([''])
+export const _signalDomain  = signal('')
+export const _signalLoader  = signal('start')
+export const _signalSiteMetadata  = signal({})
+export const _signalSiteId  = signal('')
+export const _signalHomepage = signal('')
+export const _signalVariables = signal(null)
 
 
 export function initApp(http:HttpClient, router:Router):Promise<void>{
@@ -18,7 +18,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
     return new Promise((resolve)=>{
 
         if (typeof window !== 'undefined') {
-            adgLoader.update(() => 'pre end')
+          _signalLoader.update(() => 'pre end')
             
             var domain = window.location.host
     
@@ -27,7 +27,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
               domain = 'airtrame-uwc.web.app'
             }
     
-            adgDomain.set(domain)
+            _signalDomain.set(domain)
     
             //Get site
             const url = 'https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app'
@@ -37,9 +37,11 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
             .subscribe((res: any) => {
     
               console.log('*** INIT SITE WITH ***', res)
+              _signalSiteMetadata.set(res)
     
               //init variables
-              adgVariables.set(res.variables)
+              _signalVariables.set(res.variables)
+              _signalHomepage.set(res.homepage)
              
               //init routes
               const mapping = res.mapping
@@ -49,7 +51,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
                 router.config.push({ path: element.loc, component: ContentComponent})
               })
     
-              adgRoutes.set(routes)
+              _signalRoutes.set(routes)
               router.config.push({ path: '',pathMatch:'full', component: ContentComponent, data:{Homepage : true}})
               router.config.push({ path: '404/notfound', component: PageNotFoundComponent})
               router.config.push({ path: '**', component: PageNotFoundComponent})

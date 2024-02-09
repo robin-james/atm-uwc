@@ -1,0 +1,283 @@
+@use "sass:map";
+.adg-footer{
+    border-top: 1px solid #858585;
+    width: calc(100% - 2em);
+    padding: 1em 1em;
+}
+
+.adg-footer-logo {
+    width: 200px;
+    height: 50px;
+    //background-color: aqua;
+    object-fit: contain;
+  }
+
+.adg-grid-6{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+.adg-footer-last{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #858585;
+    width: calc(100% - 2em);
+    padding: 1em 1em;
+}
+
+.adg-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+$theme-colors: (
+    success: #28a745,
+    info: #17a2b8,
+    warning: #ffc107,
+);
+
+
+
+$colors: (
+    primary: var(--primary),
+    secondary: var(--secondary),
+    on-primary: var(--on-primary),
+    on-secondary : var(--on-secondary),
+);
+
+$breakpoints: (
+    mobile: 600px,
+    tablet:960px,
+);
+
+.adg-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: var(--margin-medium);
+  
+
+    @media (max-width: map.get($breakpoints, mobile)) {
+
+        flex-direction: column;
+
+    }
+
+    &.row{
+        flex-direction: row;
+        @media (max-width: map.get($breakpoints, mobile)) {
+
+            flex-direction: column;
+    
+        }
+    }
+
+}
+
+.adg-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  
+
+    @media (max-width: map.get($breakpoints, mobile)) {
+
+        flex-direction: column;
+
+    }
+
+    &.fit-content{
+        width: fit-content;
+        align-items: center;
+    }
+
+}
+
+
+@mixin break($arg-size, $arg-padding) {
+
+    @media (max-width: map.get($breakpoints, $arg-size)) {
+        $widthe:calc(100% - (2 * $arg-padding));
+        width: $widthe;
+       
+    }
+}
+
+@mixin flex-row ($arg-coeff) {
+    display: flex;
+    flex-direction: row;
+    $width: calc(100% / $arg-coeff);
+    width: $width;
+
+    @include break(mobile, 0px)
+}
+
+@mixin flex-column ($arg-coeff) {
+    display: flex;
+    flex-direction: column;
+    $width: calc(100% / $arg-coeff);
+    width: $width;
+
+    @include break(mobile, 0px)
+}
+
+
+// défini la couleur de fond et choisi la couleur du texte en fonction
+@mixin background($arg-color) {
+
+    @if $arg-color == none {
+        background-color: none;
+    }
+
+    @if $arg-color == primary {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, on-primary);
+    }
+
+    @if $arg-color == secondary {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, on-secondary);
+
+    }
+
+}
+
+@mixin padding($arg-padding, $arg-coeff) {
+
+    @if $arg-padding == extra-small {
+        padding: var(--margin-extra-small);
+        $width: calc((100% / $arg-coeff) - 2 * var(--margin-extra-small) );
+        width: $width;
+        @include break(mobile, var(--margin-extra-small))
+    };
+    @if $arg-padding == small {
+        padding: var(--margin-small);
+    }
+}
+
+
+
+.adg-column {
+
+    @include flex-column(1);
+    @include background(none);
+
+    &__1-2 {
+        @include flex-column(2);  
+        &.primary {
+            @include background(primary);
+        }
+        &.p-xs {
+            @include padding(extra-small, 2);
+        }
+        &.p-s {
+            @include padding(small , 2);
+        }
+    }
+
+    &__1-3 {
+        @include flex-column(3);
+        &.primary {
+            @include background(primary);
+        }
+        &.p-xs {
+            @include padding(extra-small, 3);
+        }
+        &.p-s {
+            @include padding(small, 3);
+        }
+    }
+
+    &__2-3 {
+        @include flex-column(1.5);
+        &.primary {
+            @include background(primary);
+        }
+        &.p-xs {
+            @include padding(extra-small, 1.5);
+        }
+        &.p-s {
+            @include padding(small, 1.5);
+        }
+    }
+
+    &.primary {
+        @include background(primary);
+    }
+    &.p-xs {
+        @include padding(extra-small, 1);
+    }
+    &.p-s {
+        @include padding(small, 1);
+    }
+
+    
+}
+
+.adg-row {
+
+    @include flex-row(1);
+    @include background(none);
+
+    &__1-2 {
+        @include flex-row(2);  
+        &.primary {
+            @include background(primary);
+        }
+    }
+
+    &__1-3 {
+        @include flex-row(3);
+        &.primary {
+            @include background(primary);
+        }
+    }
+
+    &__2-3 {
+        @include flex-row(1.5);
+        &.primary {
+            @include background(primary);
+        }
+    }
+
+    &.primary {
+        @include background(primary);
+    }
+
+    
+}
+
+.adg-picture{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.adg-picture-h120{
+    width: 100%;
+    height: calc(100% + var(--margin-small));
+    object-fit: cover;
+}
+
+
+.adg-divider{
+    width: 100%;
+    height: 1px;
+    border-top:1px solid var(--border-color) ;
+    margin: var(--margin-small) 0px var(--margin-small) 0px;
+}
+
+.adg-line{
+    width: 100%;
+    height: 1px;
+    border-top:1px solid var(--border-color) ;
+    margin: var(--margin-extra-small) 0px var(--margin-extra-small) 0px;
+
+    &.on-primary{
+        border-top:1px solid var(--on-primary) ;
+    }
+}
