@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from "../components/page-not-found/page-not-fou
 export const _signalRoutes = signal([''])
 export const _signalDomain  = signal('')
 export const _signalLoader  = signal('start')
-export const _signalSiteMetadata  = signal({})
+export const _signalSiteMetadata  = signal(null)
 export const _signalSiteId  = signal('')
 export const _signalHomepage = signal('')
 export const _signalVariables = signal(null)
