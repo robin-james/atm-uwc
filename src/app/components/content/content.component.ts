@@ -7,12 +7,16 @@ import { HttpClient } from '@angular/common/http';
 import { MetaService } from '../../shared/meta.service';
 import { ActivatedRoute } from '@angular/router';
 import { SanitizePipe } from '../../shared/sanitize.pipe';
+import { ContactComponent } from '../ATMModules/contact/contact.component';
+import { ViewContainerRef } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { ComponentLoaderService } from '../../shared/component-loader.service';
 
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, SanitizePipe],
+  imports: [HeaderComponent, FooterComponent, SanitizePipe, ContactComponent],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })
@@ -31,31 +35,40 @@ export class ContentComponent implements OnInit {
   _isHomepage!: boolean
   _pageUrl!: string | null
 
+  isModule:boolean = false
+
+  @ViewChild('TemplateRefAnchor', { static: false, read: ViewContainerRef }) templateRefAnchor!: ViewContainerRef
+
   constructor(private http: HttpClient,
     private seoService: MetaService,
-    private route: ActivatedRoute,) {
+    private route: ActivatedRoute,
+    private loader:ComponentLoaderService
+ ) {
 
   }
   ngOnInit(): void {
+   
     console.log(this.loaded)
     if (this.domain == '') {
       console.log('localhost')
 
     } else {
-     
-      this.route.paramMap.subscribe((data: any) => {
+      
+      
 
-     
-        if (data.params.name == undefined) {
+       
+        if (this.route.routeConfig?.path == '') {
           this._pageUrl = _signalHomepage()
+       
           this._isHomepage = true
         } else {
-          this._pageUrl = data.params.name
+          this._pageUrl = this.route.routeConfig?.path!
         }
+     
         this.sectionInitApi(this._pageUrl!)
 
 
-      })
+      
 
     }
 
@@ -74,12 +87,26 @@ export class ContentComponent implements OnInit {
 
     this.getSectionsApi(page).subscribe((data: any) => {
      
-      console.log(data)
-      this.htmlFront = data.htmlFront
-      _signalLoader.update(() => 'end')
-      this.loaded = true
-      console.log(this.loaded)
-      this.setMeta(data.name, data.title, data.metadescription, data.keywords)
+
+      this.isModule = data.isModule
+
+
+      if(this.isModule){
+
+        const component = this.loader.setComponent(data.atmModule.selector)!
+        setTimeout(()=>{
+          this.templateRefAnchor.createComponent(component)
+        },1)
+        this.loaded = true
+
+      }else{
+        this.htmlFront = data.htmlFront
+        _signalLoader.update(() => 'end')
+        this.loaded = true
+        
+        this.setMeta(data.name, data.title, data.metadescription, data.keywords)
+      }
+      
     })
 
   }

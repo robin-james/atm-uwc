@@ -1,0 +1,79 @@
+<div class="adg-fullpage">
+    <div class="adg-container">
+
+
+
+        <div class="adg-column__1-2 p-xs">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <h2 class="headline-medium">Nous contacter</h2>
+                <p class="title-medium">Une commande, des questions, n'hésitez pas à nous contacter !</p>
+            
+                <div class="form__group field">
+                  <input #search type="text" class="form__field" placeholder="Nom" name="nom" id='nom' autocomplete="off"
+                    formControlName="name">
+                  <label for="nom" class="form__label">Nom</label>
+                </div>
+                <p class="label-regular alert"
+                  *ngIf="contactForm.controls.name.invalid && this.contactForm.controls.name.touched">
+                  3 caractères minimum</p>
+                <div class="adg-spacer__y xxs"></div>
+            
+                <div class="form__group field">
+                  <input #search type="text" class="form__field" placeholder="Email" name="mail" id='mail' autocomplete="off"
+                    formControlName="mail">
+                  <label for="mail" class="form__label">Adresse mail</label>
+                </div>
+                <p class="label-regular alert"
+                  *ngIf="contactForm.controls.mail.invalid && this.contactForm.controls.mail.touched">
+                  Entrez un mail valide</p>
+            
+                <div class="adg-spacer__y xxs"></div>
+            
+                <div class="form__group field">
+                  <input #search type="text" class="form__field" placeholder="Téléphone" name="phone" id='phone'
+                    autocomplete="off" formControlName="phone">
+                  <label for="phone" class="form__label">Téléphone</label>
+                </div>
+            
+                <div class="adg-spacer__y xxs"></div>
+            
+            
+                <div class="adg-column">
+                  <div class="adg-spacer__y xs"></div>
+                  <textarea class="card-form" placeholder="Message" formControlName="message"></textarea>
+                </div>
+                <p class="label-regular alert"
+                  *ngIf="contactForm.controls.message.invalid && this.contactForm.controls.message.touched">3 caractères minimum
+                </p>
+            
+                <div class="adg-spacer__y xs"></div>
+                <button class="button-6" type="submit" [disabled]="!contactForm.valid">Envoyer</button>
+            
+      
+        
+      </form>
+    </div>
+
+    <div class="adg-column__1-2 p-xs">
+        <h2 class="headline-medium">Infos pratiques</h2>
+        <h3 class="title-medium">Adresse</h3>
+        <p class="body-medium">{{_details.name}}</p>
+        <p class="body-medium">{{_details.address}}</p>
+        <p class="body-medium">{{_details.zipCode}} {{_details.city}}</p>
+        <div class="adg-spacer__y xxs neutral"></div>
+        <h3 class="title-medium">Téléphone</h3>
+        <p class="body-medium">{{_details.phone}}</p>
+        <div class="adg-spacer__y xxs neutral"></div>
+        <h3 class="title-medium">Adresse Mail</h3>
+        <p class="body-medium">{{_details.mail}}</p>
+        <div class="adg-spacer__y xxs neutral"></div>
+        <h3 class="title-medium">Horaires d'ouverture</h3>
+        <p class="body-medium">Du lundi au vendredi de 9h00 à 12h00 et de 14h00 à 18h.</p>
+
+
+    </div>
+
+
+
+</div>
+</div>

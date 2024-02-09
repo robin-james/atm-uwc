@@ -1,0 +1,93 @@
+
+.m-negative {
+    &.t-xxs {
+        margin-top: calc(0px - var(--margin-xxs));
+    }
+
+    &.t-xs {
+        margin-top: calc(0px - var(--margin-xs));
+    }
+    &.t-s {
+        margin-top: calc(0px - var(--margin-s));
+    }
+    &.t-m {
+        margin-top: calc(0px - var(--margin-m));
+    }
+    &.t-l {
+        margin-top: calc(0px - var(--margin-l));
+    }
+    &.t-xl {
+        margin-top: calc(0px - var(--margin-xl));
+    }
+    &.t-xxl {
+        margin-top: calc(0px - var(--margin-xxl));
+    }
+
+
+    &.r-xxs {
+        margin-right: calc(0px - var(--margin-xxs));
+    }
+    &.r-xs {
+        margin-right: calc(0px - var(--margin-xs));
+    }
+    &.r-s {
+        margin-right: calc(0px - var(--margin-s));
+    }
+    &.r-m {
+        margin-right: calc(0px - var(--margin-m));
+    }
+    &.r-l {
+        margin-right: calc(0px - var(--margin-l));
+    }
+    &.r-xl {
+        margin-right: calc(0px - var(--margin-xl));
+    }
+    &.r-xxl {
+        margin-right: calc(0px - var(--margin-xxl));
+    }
+
+    &.b-xxs {
+        margin-bottom: calc(0px - var(--margin-xxs));
+    }
+    &.b-xs {
+        margin-bottom: calc(0px - var(--margin-xs));
+    }
+    &.b-s {
+        margin-bottom: calc(0px - var(--margin-s));
+    }
+    &.b-m {
+        margin-bottom: calc(0px - var(--margin-m));
+    }
+    &.b-l {
+        margin-bottom: calc(0px - var(--margin-l));
+    }
+    &.b-xl {
+        margin-bottom: calc(0px - var(--margin-xl));
+    }
+    &.b-xxl {
+        margin-bottom: calc(0px - var(--margin-xxl));
+    }
+
+    &.l-xxs {
+        margin-left: calc(0px - var(--margin-xxs));
+    }
+    &.l-xs {
+        margin-left: calc(0px - var(--margin-xs));
+    }
+    &.l-s {
+        margin-left: calc(0px - var(--margin-s));
+    }
+    &.l-m {
+        margin-left: calc(0px - var(--margin-m));
+    }
+    &.l-l {
+        margin-left: calc(0px - var(--margin-l));
+    }
+    &.l-xl {
+        margin-left: calc(0px - var(--margin-xl));
+    }
+    &.l-xxl {
+        margin-left: calc(0px - var(--margin-xxl));
+    }
+   
+}

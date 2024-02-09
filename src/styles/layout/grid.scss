@@ -1,0 +1,93 @@
+@use "sass:map";
+@import '../mixins.scss';
+
+
+$breakpoints: (
+    mobile: 600px,
+    tablet:960px,
+);
+
+
+
+.atm-grid{
+    display: grid;
+
+    &__area{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr) 
+    }
+
+    &__3{
+        display: grid;
+        width: 100%;
+        grid-template-columns:  repeat(3, 1fr);
+        justify-content: center;
+       // align-items: center;
+   
+        gap: var(--margin-xs);
+
+        @media (max-width: map.get($breakpoints, mobile)) {
+
+            grid-template-columns:  repeat(1, 1fr);
+            }
+
+
+    &.secondary-container {
+        background-color: var(--color-surfaceContainerLowest);
+        color:var(--color-onSecondaryContainer)
+    }
+
+    &.p-xxs {
+        @include padding(xxs, 1);
+    }
+    &.p-xs {
+        @include padding(xs, 1);
+    }
+
+    &.p-s {
+        @include padding(s, 1);
+    }
+    &.p-m {
+        @include padding(m, 1);
+    }
+
+   
+
+    }
+    &__2{
+        display: grid;
+        width: 100%;
+        grid-template-columns:  repeat(2, 1fr);
+        justify-content: center;
+       // align-items: center;
+   
+        gap: var(--margin-xs);
+
+        @media (max-width: map.get($breakpoints, mobile)) {
+
+            grid-template-columns:  repeat(1, 1fr);
+            }
+
+
+    &.secondary-container {
+        background-color: var(--color-surfaceContainerLowest);
+        color:var(--color-onSecondaryContainer)
+    }
+
+    &.p-xxs {
+        @include padding(xxs, 1);
+    }
+    &.p-xs {
+        @include padding(xs, 1);
+    }
+
+    &.p-s {
+        @include padding(s, 1);
+    }
+    &.p-m {
+        @include padding(m, 1);
+    }
+
+    }
+
+}

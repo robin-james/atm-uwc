@@ -1,0 +1,335 @@
+@use "sass:map";
+
+
+$colors: (
+    primary: var(--color-primary),
+    primaryContainer: var(--color-primaryContainer),
+    primaryContainerHover: var(--color-primaryContainerHover),
+    onPrimary: var(--color-onPrimary),
+    onPrimaryContainer: var(--color-onPrimaryContainer),
+    surface: var(--color-surface),
+    surfaceContainer: var(--color-surfaceContainer),
+    surfaceContainerLow: var(--color-surfaceContainerLow),
+    surfaceContainerHigh: var(--color-surfaceContainerHigh),
+    surfaceAccent: var(--color-surfaceAccent),
+    surfaceAccentHover: var(--color-surfaceAccentHover),
+    onSurface: var(--color-onSurface),
+    onSurfaceAccent: var(--color-onSurfaceAccent),
+    secondary: var(--color-secondary),
+    secondaryContainer: var(--color-secondaryContainer),
+    onSecondary: var(--color-onSecondary),
+    onSecondaryContainer: var(--color-onSecondaryContainer),
+    tertiary: var(--color-tertiary),
+    tertiaryContainer: var(--color-tertiaryContainer),
+    onTertiary: var(--color-onTertiary),
+    onTertiaryContainer: var(--color-onTertiaryContainer),
+);
+
+$breakpoints: (
+    mobile: 600px,
+    tablet:960px,
+);
+
+
+
+/**
+    * Calculate a new width
+    * @param $arg-breakpoint accept : mobile | tablet.
+    * @param $arg-padding accept a paddind value.
+    * @returns new responsive width for selected breakpoint
+    */
+@mixin break($arg-breakpoint, $arg-padding) {
+
+    @media (max-width: map.get($breakpoints, $arg-breakpoint)) {
+        $widthe: calc(100% - (2 * $arg-padding));
+        width: $widthe;
+
+    }
+}
+
+/**
+    * Base for row layout
+    * @param $arg-divider, divise the full witdh.
+    */
+@mixin flex-row ($arg-divider) {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    $width: calc(100% / $arg-divider);
+    width: $width;
+
+    @include break(mobile, 0px)
+}
+
+/**
+    * Base for column layout
+    * @param $arg-divider, divise the full width.
+    */
+@mixin flex-column ($arg-divider) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    $width: calc(100% / $arg-divider);
+    width: $width;
+
+    @include break(mobile, 0px)
+}
+
+
+/**
+    * Set background color and text color.
+    * @param $arg-color (background-color) accept :
+    * primary
+    * primaryContainer
+    * primaryContainerHover
+    * surface
+    * surfaceContainer
+    * surfaceContainerLow
+    * surfaceContainerHigh
+    * surfaceAccent
+    * surfaceAccentHover
+    * secondary
+    * secondaryContainer
+    * tertiary
+    * tertiaryContainer
+    */
+@mixin background($arg-color) {
+
+    @if $arg-color ==none {
+        background-color: none;
+    }
+
+    @if $arg-color ==primary {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onPrimary);
+    }
+
+    @if $arg-color ==secondary {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSecondary);
+
+    }
+
+    @if $arg-color ==secondaryContainer {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSecondaryContainer);
+
+    }
+
+    @if $arg-color ==tertiary {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onTertiary);
+
+    }
+
+    @if $arg-color ==tertiaryContainer {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onTertiaryContainer);
+
+    }
+
+    @if $arg-color ==surface {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSurface);
+
+    }
+
+    @if $arg-color ==surfaceContainer {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSurface);
+
+    }
+
+    @if $arg-color ==surfaceContainerLow {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSurface);
+
+    }
+
+    @if $arg-color ==surfaceContainerHigh {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSurface);
+
+    }
+
+    @if $arg-color ==primaryContainer {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onPrimaryContainer);
+
+    }
+
+    @if $arg-color ==surfaceAccent {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSurfaceAccent);
+
+    }
+
+    @if $arg-color ==surfaceAccentHover {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onSurfaceAccent);
+
+    }
+
+    @if $arg-color ==primaryContainerHover {
+        background-color: map.get($colors, $arg-color);
+        color: map.get($colors, onPrimaryContainer);
+
+    }
+
+}
+
+/**
+    * Set Padding to layout
+    * @param $arg-padding accept : xxs | xs | s | m | l | xl | xxl (depend to --margin var)
+    * @param $arg-divider : divise the full width
+    */
+@mixin padding($arg-padding, $arg-divider) {
+
+    @if $arg-padding == xxs {
+        padding: var(--margin-xxs);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-xxs));
+        width: $width;
+        @include break(mobile, var(--margin-xxs))
+    };
+    @if $arg-padding == xs {
+        padding: var(--margin-xs);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-xs));
+        width: $width;
+        @include break(mobile, var(--margin-xs))
+    };
+    @if $arg-padding == s {
+        padding: var(--margin-s);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-s));
+        width: $width;
+        @include break(mobile, var(--margin-s))
+    };
+    @if $arg-padding == m {
+        padding: var(--margin-m);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-m));
+        width: $width;
+        @include break(mobile, var(--margin-m))
+    };
+    @if $arg-padding == l {
+        padding: var(--margin-l);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-l));
+        width: $width;
+        @include break(mobile, var(--margin-l))
+    };
+    @if $arg-padding == xl {
+        padding: var(--margin-xl);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-xl));
+        width: $width;
+        @include break(mobile, var(--margin-xl))
+    };
+    @if $arg-padding == xxl {
+        padding: var(--margin-xxl);
+        $width: calc((100% / $arg-divider) - 2 * var(--margin-xxl));
+        width: $width;
+        @include break(mobile, var(--margin-xxl))
+    };
+
+   
+}
+
+/**
+    * Set Padding to layout
+    * @param $arg-padding accept : xxs | xs | s | m | l | xl | xxl (depend to --margin var)
+    * @param $arg-divider : divise the full width
+    */
+@mixin sidepadding($arg-padding, $arg-divider) {
+
+        @if $arg-padding == xxs {
+            padding: 0px var(--margin-xxs);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-xxs));
+            width: $width;
+            @include break(mobile, var(--margin-xxs))
+        };
+        @if $arg-padding == xs {
+            padding: 0px var(--margin-xs);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-xs));
+            width: $width;
+            @include break(mobile, var(--margin-xs))
+        };
+        @if $arg-padding == s {
+            padding: 0px var(--margin-s);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-s));
+            width: $width;
+            @include break(mobile, var(--margin-s))
+        };
+        @if $arg-padding == m {
+            padding: 0px var(--margin-m);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-m));
+            width: $width;
+            @include break(mobile, var(--margin-m))
+        };
+        @if $arg-padding == l {
+            padding: 0px var(--margin-l);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-l));
+            width: $width;
+            @include break(mobile, var(--margin-l))
+        };
+        @if $arg-padding == xl {
+            padding: 0px var(--margin-xl);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-xl));
+            width: $width;
+            @include break(mobile, var(--margin-xl))
+        };
+        @if $arg-padding == xxl {
+            padding: 0px var(--margin-xxl);
+            $width: calc((100% / $arg-divider) - 2 * var(--margin-xxl));
+            width: $width;
+            @include break(mobile, var(--margin-xxl))
+        };
+    
+       
+    }
+
+/**
+    * Set border
+    * @param $arg-border accept : all | top | right | bottom | left 
+    * @param $arg-size : border size, px value
+    */
+@mixin border($arg-border) {
+
+    @if $arg-border == left {
+        border-left: 1px solid var(--color-outline);
+    }
+
+    @if $arg-border == right {
+        border-right: 1px solid var(--color-outline);
+    }
+
+    @if $arg-border == top {
+        border-top:1px solid var(--color-outline);
+    }
+
+    @if $arg-border == bottom {
+        border-bottom: 1px solid var(--color-outline);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

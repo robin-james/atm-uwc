@@ -1,0 +1,789 @@
+
+@import '../mixins.scss';
+
+/* AIRTRAME COLUMN GLOBAL STYLE */
+.atm-column {
+
+    @include flex-column(1);
+    @include background(none);
+
+    &.primary {
+        @include background(primary);
+    }
+    &.secondary {
+        @include background(secondary);
+    }
+    &.tertiary {
+        @include background(tertiary);
+    }
+    &.primaryContainer {
+        @include background(primaryContainer);
+    }
+    &.secondaryContainer {
+        @include background(secondaryContainer);
+    }
+    &.tertiaryContainer {
+        @include background(tertiaryContainer);
+    }
+    &.surface {
+        @include background(surface);
+    }
+    &.surfaceContainer {
+        @include background(surfaceContainer);
+    }
+    &.surfaceContainerLow {
+        @include background(surfaceContainerLow);
+    }
+    &.surfaceContainerHigh {
+        @include background(surfaceContainerHigh);
+    }
+    &.surfaceAccent {
+        @include background(surfaceAccent);
+    }
+
+    &.p-xxs {
+        @include padding(xxs, 1);
+    }
+    &.p-xs {
+        @include padding(xs, 1);
+    }
+
+    &.p-s {
+        @include padding(s, 1);
+    }
+    &.p-m {
+        @include padding(m, 1);
+    }
+    &.p-l {
+        @include padding(l, 1);
+    }
+    &.p-xl {
+        @include padding(xl, 1);
+    }
+    &.p-xxl {
+        @include padding(xxl, 1);
+    }
+
+    &.s-xxs {
+        @include sidepadding(xxs, 1);
+    }
+    &.s-xs {
+        @include sidepadding(xs, 1);
+    }
+
+    &.s-s {
+        @include sidepadding(s, 1);
+    }
+    &.s-m {
+        @include sidepadding(m, 1);
+    }
+    &.s-l {
+        @include sidepadding(l, 1);
+    }
+    &.s-xl {
+        @include sidepadding(xl, 1);
+    }
+    &.s-xxl {
+        @include sidepadding(xxl, 1);
+    }
+
+    &.x-center {
+        align-items: center
+    }
+    &.x-flexend{
+        align-items: flex-end
+    }
+    &.y-center {
+        justify-content: center
+    }
+    &.y-flexend{
+        justify-content:flex-end
+    }
+    &.space-between{
+        justify-content:space-between
+    }
+    &.space-around{
+        justify-content:space-around
+    }
+    &.space-evenly{
+        justify-content:space-evenly
+    }
+
+    &.rounded{
+        border-radius: var(--border-radius)
+    }
+    
+    &.mt-xxs{
+        margin-top: var(--margin-xxs)
+    }
+    &.mt-xs{
+        margin-top: var(--margin-xs)
+    }
+    &.mt-s{
+        margin-top: var(--margin-s)
+    }
+    &.mt-m{
+        padding-top: var(--margin-m)
+    }
+    &.mt-l{
+        margin-top: var(--margin-l)
+    }
+    &.mt-xl{
+        margin-top: var(--margin-xl)
+    }
+    &.mt-xxl{
+        margin-top: var(--margin-xxl)
+    }
+
+    &.mt-negative-xxs{
+        margin-top: calc(0px - var(--margin-xxs)) 
+    }
+    &.mt-negative-xs{
+        margin-top: calc(0px - var(--margin-xs)) 
+    }
+    &.mt-negative-s{
+        margin-top: calc(0px - var(--margin-s)) 
+    }
+    &.mt-negative-m{
+        margin-top: calc(0px - var(--margin-m)) 
+    }
+    &.mt-negative-l{
+        margin-top: calc(0px - var(--margin-l)) 
+    }
+    &.mt-negative-xl{
+        margin-top: calc(0px - var(--margin-xl)) 
+    }
+    &.mt-negative-xxl{
+        margin-top: calc(0px - var(--margin-xxl)) 
+    }
+
+    &__1-2 {
+
+        @include flex-column(2);
+    
+        &.primary {
+            @include background(primary);
+        }
+        &.secondary {
+            @include background(secondary);
+        }
+        &.tertiary {
+            @include background(tertiary);
+        }
+        &.primaryContainer {
+            @include background(primaryContainer);
+        }
+        &.secondaryContainer {
+            @include background(secondaryContainer);
+        }
+        &.tertiaryContainer {
+            @include background(tertiaryContainer);
+        }
+        &.surface {
+            @include background(surface);
+        }
+        &.surfaceContainer {
+            @include background(surfaceContainer);
+        }
+        &.surfaceContainerLow {
+            @include background(surfaceContainerLow);
+        }
+        &.surfaceContainerHigh {
+            @include background(surfaceContainerHigh);
+        }
+        &.surfaceAccent {
+            @include background(surfaceAccent);
+        }
+
+        &.p-xxs {
+            @include padding(xxs, 2);
+        }
+        &.p-xs {
+            @include padding(xs, 2);
+        }
+    
+        &.p-s {
+            @include padding(s, 2);
+        }
+        &.p-m {
+            @include padding(m, 2);
+        }
+        &.p-l {
+            @include padding(l, 2);
+        }
+        &.p-xl {
+            @include padding(xl, 2);
+        }
+        &.p-xxl {
+            @include padding(xxl, 2);
+        }
+    
+        &.s-xxs {
+            @include sidepadding(xxs, 2);
+        }
+        &.s-xs {
+            @include sidepadding(xs, 2);
+        }
+    
+        &.s-s {
+            @include sidepadding(s, 2);
+        }
+        &.s-m {
+            @include sidepadding(m, 2);
+        }
+        &.s-l {
+            @include sidepadding(l, 2);
+        }
+        &.s-xl {
+            @include sidepadding(xl, 2);
+        }
+        &.s-xxl {
+            @include sidepadding(xxl, 2);
+        }
+
+        &.x-center {
+            align-items: center
+        }
+        &.x-flexend{
+            align-items: flex-end
+        }
+        &.y-center {
+            justify-content: center
+        }
+        &.y-flexend{
+            justify-content:flex-end
+        }
+        &.space-between{
+            justify-content:space-between
+        }
+        &.space-around{
+            justify-content:space-around
+        }
+        &.space-evenly{
+            justify-content:space-evenly
+        }
+      
+        &.rounded{
+            border-radius: var(--border-radius)
+        }
+
+        
+        &.mt-xxs{
+            margin-top: var(--margin-xxs)
+        }
+        &.mt-xs{
+            margin-top: var(--margin-xs)
+        }
+        &.mt-s{
+            margin-top: var(--margin-s)
+        }
+        &.mt-m{
+            padding-top: var(--margin-m)
+        }
+        &.mt-l{
+            margin-top: var(--margin-l)
+        }
+        &.mt-xl{
+            margin-top: var(--margin-xl)
+        }
+        &.mt-xxl{
+            margin-top: var(--margin-xxl)
+        }
+
+        &.mt-negative-xxs{
+            margin-top: calc(0px - var(--margin-xxs)) 
+        }
+        &.mt-negative-xs{
+            margin-top: calc(0px - var(--margin-xs)) 
+        }
+        &.mt-negative-s{
+            margin-top: calc(0px - var(--margin-s)) 
+        }
+        &.mt-negative-m{
+            margin-top: calc(0px - var(--margin-m)) 
+        }
+        &.mt-negative-l{
+            margin-top: calc(0px - var(--margin-l)) 
+        }
+        &.mt-negative-xl{
+            margin-top: calc(0px - var(--margin-xl)) 
+        }
+        &.mt-negative-xxl{
+            margin-top: calc(0px - var(--margin-xxl)) 
+        }
+    }
+
+    &__1-3 {
+        @include flex-column(3);
+
+        &.primary {
+            @include background(primary);
+        }
+        &.secondary {
+            @include background(secondary);
+        }
+        &.tertiary {
+            @include background(tertiary);
+        }
+        &.primaryContainer {
+            @include background(primaryContainer);
+        }
+        &.secondaryContainer {
+            @include background(secondaryContainer);
+        }
+        &.tertiaryContainer {
+            @include background(tertiaryContainer);
+        }
+        &.surface {
+            @include background(surface);
+        }
+        &.surfaceContainer {
+            @include background(surfaceContainer);
+        }
+        &.surfaceContainerLow {
+            @include background(surfaceContainerLow);
+        }
+        &.surfaceContainerHigh {
+            @include background(surfaceContainerHigh);
+        }
+        &.surfaceAccent {
+            @include background(surfaceAccent);
+        }
+
+        &.p-xxs {
+            @include padding(xxs, 3);
+        }
+        &.p-xs {
+            @include padding(xs, 3);
+        }
+    
+        &.p-s {
+            @include padding(s, 3);
+        }
+        &.p-m {
+            @include padding(m, 3);
+        }
+        &.p-l {
+            @include padding(l, 3);
+        }
+        &.p-xl {
+            @include padding(xl, 3);
+        }
+        &.p-xxl {
+            @include padding(xxl, 3);
+        }
+    
+        &.s-xxs {
+            @include sidepadding(xxs, 3);
+        }
+        &.s-xs {
+            @include sidepadding(xs, 3);
+        }
+    
+        &.s-s {
+            @include sidepadding(s, 3);
+        }
+        &.s-m {
+            @include sidepadding(m, 3);
+        }
+        &.s-l {
+            @include sidepadding(l, 3);
+        }
+        &.s-xl {
+            @include sidepadding(xl, 3);
+        }
+        &.s-xxl {
+            @include sidepadding(xxl, 3);
+        }
+
+        &.x-center {
+            align-items: center
+        }
+        &.x-flexend{
+            align-items: flex-end
+        }
+        &.y-center {
+            justify-content: center
+        }
+        &.y-flexend{
+            justify-content:flex-end
+        }
+        &.space-between{
+            justify-content:space-between
+        }
+        &.space-around{
+            justify-content:space-around
+        }
+        &.space-evenly{
+            justify-content:space-evenly
+        }
+
+        &.rounded{
+            border-radius: var(--border-radius)
+        }
+
+        &.mt-xxs{
+            margin-top: var(--margin-xxs)
+        }
+        &.mt-xs{
+            margin-top: var(--margin-xs)
+        }
+        &.mt-s{
+            margin-top: var(--margin-s)
+        }
+        &.mt-m{
+            padding-top: var(--margin-m)
+        }
+        &.mt-l{
+            margin-top: var(--margin-l)
+        }
+        &.mt-xl{
+            margin-top: var(--margin-xl)
+        }
+        &.mt-xxl{
+            margin-top: var(--margin-xxl)
+        }
+
+        &.mt-negative-xxs{
+            margin-top: calc(0px - var(--margin-xxs)) 
+        }
+        &.mt-negative-xs{
+            margin-top: calc(0px - var(--margin-xs)) 
+        }
+        &.mt-negative-s{
+            margin-top: calc(0px - var(--margin-s)) 
+        }
+        &.mt-negative-m{
+            margin-top: calc(0px - var(--margin-m)) 
+        }
+        &.mt-negative-l{
+            margin-top: calc(0px - var(--margin-l)) 
+        }
+        &.mt-negative-xl{
+            margin-top: calc(0px - var(--margin-xl)) 
+        }
+        &.mt-negative-xxl{
+            margin-top: calc(0px - var(--margin-xxl)) 
+        }
+
+     
+    }
+
+    &__1-4 {
+        @include flex-column(4);
+
+        &.primary {
+            @include background(primary);
+        }
+        &.secondary {
+            @include background(secondary);
+        }
+        &.tertiary {
+            @include background(tertiary);
+        }
+        &.primaryContainer {
+            @include background(primaryContainer);
+        }
+        &.secondaryContainer {
+            @include background(secondaryContainer);
+        }
+        &.tertiaryContainer {
+            @include background(tertiaryContainer);
+        }
+        &.surface {
+            @include background(surface);
+        }
+        &.surfaceContainer {
+            @include background(surfaceContainer);
+        }
+        &.surfaceContainerLow {
+            @include background(surfaceContainerLow);
+        }
+        &.surfaceContainerHigh {
+            @include background(surfaceContainerHigh);
+        }
+        &.surfaceAccent {
+            @include background(surfaceAccent);
+        }
+
+        &.p-xxs {
+            @include padding(xxs, 4);
+        }
+        &.p-xs {
+            @include padding(xs, 4);
+        }
+    
+        &.p-s {
+            @include padding(s, 4);
+        }
+        &.p-m {
+            @include padding(m, 4);
+        }
+        &.p-l {
+            @include padding(l, 4);
+        }
+        &.p-xl {
+            @include padding(xl, 4);
+        }
+        &.p-xxl {
+            @include padding(xxl, 4);
+        }
+    
+        &.s-xxs {
+            @include sidepadding(xxs, 4);
+        }
+        &.s-xs {
+            @include sidepadding(xs, 4);
+        }
+    
+        &.s-s {
+            @include sidepadding(s, 4);
+        }
+        &.s-m {
+            @include sidepadding(m, 4);
+        }
+        &.s-l {
+            @include sidepadding(l, 4);
+        }
+        &.s-xl {
+            @include sidepadding(xl, 4);
+        }
+        &.s-xxl {
+            @include sidepadding(xxl, 4);
+        }
+
+        &.x-center {
+            align-items: center
+        }
+        &.x-flexend{
+            align-items: flex-end
+        }
+        &.y-center {
+            justify-content: center
+        }
+        &.y-flexend{
+            justify-content:flex-end
+        }
+        &.space-between{
+            justify-content:space-between
+        }
+        &.space-around{
+            justify-content:space-around
+        }
+        &.space-evenly{
+            justify-content:space-evenly
+        }
+
+
+        &.rounded{
+            border-radius: var(--border-radius)
+        }
+
+        
+        &.mt-xxs{
+            margin-top: var(--margin-xxs)
+        }
+        &.mt-xs{
+            margin-top: var(--margin-xs)
+        }
+        &.mt-s{
+            margin-top: var(--margin-s)
+        }
+        &.mt-m{
+            padding-top: var(--margin-m)
+        }
+        &.mt-l{
+            margin-top: var(--margin-l)
+        }
+        &.mt-xl{
+            margin-top: var(--margin-xl)
+        }
+        &.mt-xxl{
+            margin-top: var(--margin-xxl)
+        }
+
+        &.mt-negative-xxs{
+            margin-top: calc(0px - var(--margin-xxs)) 
+        }
+        &.mt-negative-xs{
+            margin-top: calc(0px - var(--margin-xs)) 
+        }
+        &.mt-negative-s{
+            margin-top: calc(0px - var(--margin-s)) 
+        }
+        &.mt-negative-m{
+            margin-top: calc(0px - var(--margin-m)) 
+        }
+        &.mt-negative-l{
+            margin-top: calc(0px - var(--margin-l)) 
+        }
+        &.mt-negative-xl{
+            margin-top: calc(0px - var(--margin-xl)) 
+        }
+        &.mt-negative-xxl{
+            margin-top: calc(0px - var(--margin-xxl)) 
+        }
+    }
+
+    &__2-3 {
+        @include flex-column(1.5);
+
+        &.primary {
+            @include background(primary);
+        }
+        &.secondary {
+            @include background(secondary);
+        }
+        &.tertiary {
+            @include background(tertiary);
+        }
+        &.primaryContainer {
+            @include background(primaryContainer);
+        }
+        &.secondaryContainer {
+            @include background(secondaryContainer);
+        }
+        &.tertiaryContainer {
+            @include background(tertiaryContainer);
+        }
+        &.surface {
+            @include background(surface);
+        }
+        &.surfaceContainer {
+            @include background(surfaceContainer);
+        }
+        &.surfaceContainerLow {
+            @include background(surfaceContainerLow);
+        }
+        &.surfaceContainerHigh {
+            @include background(surfaceContainerHigh);
+        }
+        &.surfaceAccent {
+            @include background(surfaceAccent);
+        }
+
+        &.p-xxs {
+            @include padding(xxs, 1.5);
+        }
+        &.p-xs {
+            @include padding(xs, 1.5);
+        }
+    
+        &.p-s {
+            @include padding(s, 1.5);
+        }
+        &.p-m {
+            @include padding(m, 1.5);
+        }
+        &.p-l {
+            @include padding(l, 1.5);
+        }
+        &.p-xl {
+            @include padding(xl, 1.5);
+        }
+        &.p-xxl {
+            @include padding(xxl, 1.5);
+        }
+    
+        &.s-xxs {
+            @include sidepadding(xxs, 1.5);
+        }
+        &.s-xs {
+            @include sidepadding(xs, 1.5);
+        }
+    
+        &.s-s {
+            @include sidepadding(s, 1.5);
+        }
+        &.s-m {
+            @include sidepadding(m, 1.5);
+        }
+        &.s-l {
+            @include sidepadding(l, 1.5);
+        }
+        &.s-xl {
+            @include sidepadding(xl, 1.5);
+        }
+        &.s-xxl {
+            @include sidepadding(xxl, 1.5);
+        }
+
+        &.x-center {
+            align-items: center
+        }
+        &.x-flexend{
+            align-items: flex-end
+        }
+        &.y-center {
+            justify-content: center
+        }
+        &.y-flexend{
+            justify-content:flex-end
+        }
+        &.space-between{
+            justify-content:space-between
+        }
+        &.space-around{
+            justify-content:space-around
+        }
+        &.space-evenly{
+            justify-content:space-evenly
+        }
+
+        &.rounded{
+            border-radius: var(--border-radius)
+        }
+
+        
+        &.mt-xxs{
+            margin-top: var(--margin-xxs)
+        }
+        &.mt-xs{
+            margin-top: var(--margin-xs)
+        }
+        &.mt-s{
+            margin-top: var(--margin-s)
+        }
+        &.mt-m{
+            padding-top: var(--margin-m)
+        }
+        &.mt-l{
+            margin-top: var(--margin-l)
+        }
+        &.mt-xl{
+            margin-top: var(--margin-xl)
+        }
+        &.mt-xxl{
+            margin-top: var(--margin-xxl)
+        }
+
+        &.mt-negative-xxs{
+            margin-top: calc(0px - var(--margin-xxs)) 
+        }
+        &.mt-negative-xs{
+            margin-top: calc(0px - var(--margin-xs)) 
+        }
+        &.mt-negative-s{
+            margin-top: calc(0px - var(--margin-s)) 
+        }
+        &.mt-negative-m{
+            margin-top: calc(0px - var(--margin-m)) 
+        }
+        &.mt-negative-l{
+            margin-top: calc(0px - var(--margin-l)) 
+        }
+        &.mt-negative-xl{
+            margin-top: calc(0px - var(--margin-xl)) 
+        }
+        &.mt-negative-xxl{
+            margin-top: calc(0px - var(--margin-xxl)) 
+        }
+
+    }
+
+  
+
+
+
+
+}

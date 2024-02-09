@@ -42,6 +42,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
               //init variables
               _signalVariables.set(res.variables)
               _signalHomepage.set(res.homepage)
+              console.log(res.homepage)
              
               //init routes
               const mapping = res.mapping

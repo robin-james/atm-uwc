@@ -1,0 +1,52 @@
+.atm-chips-box{
+    display : flex;
+    flex-flow: row wrap;
+}
+.atm-chips{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 255, 255, 0.178);
+    border-radius: 50px;
+    width: fit-content;
+    height: fit-content;
+    padding: 7px 14px;
+    color: rgb(17, 71, 71);
+    font-size: 12px;
+    align-items: center;
+
+    &.for-stack{
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    &.rs-xs{
+      margin-right: var(--margin-xs);
+    }
+
+    &.neutral{
+      background-color: rgb(225, 235, 225);
+    }
+
+ 
+}
+
+.atm-chips > .material-symbols-outlined {
+    margin-top: -3px;
+  font-size: 18px;
+  
+  &:hover{
+    cursor: pointer;
+  }
+  }
+
+
+  .info-box{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primaryContainer);
+    border-radius: 10px;
+    padding: 20px 20px;
+    font-size: 14px;
+    font-weight: 400;
+  }

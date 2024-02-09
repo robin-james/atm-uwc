@@ -1,0 +1,107 @@
+@use "sass:map";
+@import '../mixins.scss';
+
+
+
+$breakpoints: (
+    mobile: 600px,
+    tablet:960px,
+);
+.atm-section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    //margin-bottom: var(--margin-medium);
+    &.primary {
+        @include background(primary);
+    }
+    &.secondary {
+        @include background(secondary);
+    }
+    &.tertiary {
+        @include background(tertiary);
+    }
+    &.primaryContainer {
+        @include background(primaryContainer);
+    }
+    &.secondaryContainer {
+        @include background(secondaryContainer);
+    }
+    &.tertiaryContainer {
+        @include background(tertiaryContainer);
+    }
+    &.surface {
+        @include background(surface);
+    }
+    &.surfaceContainer {
+        @include background(surfaceContainer);
+    }
+    &.surfaceContainerLow {
+        @include background(surfaceContainerLow);
+    }
+    &.surfaceContainerHigh {
+        @include background(surfaceContainerHigh);
+    }
+    &.surfaceAccent {
+        @include background(surfaceAccent);
+    }
+
+    &.p-xxs {
+        padding: var(--margin-xxs) 0px ;
+    }
+
+    &.p-xs {
+        padding: var(--margin-xs) 0px ;
+    }
+
+    &.p-s {
+        padding: var(--margin-s) 0px ;
+    }
+
+    &.p-m {
+        padding: var(--margin-m) 0px ;
+    }
+
+    &.p-xl {
+        padding: var(--margin-l) 0px ;
+    }
+
+    &.p-xl {
+        padding: var(--margin-xl) 0px ;
+    }
+
+    &.p-xxl {
+        padding: var(--margin-xxl) 0px ;
+    }
+
+    @media (max-width: map.get($breakpoints, mobile)) {
+
+        flex-direction: column;
+
+    }
+
+    &.row {
+        flex-direction: row;
+
+        @media (max-width: map.get($breakpoints, mobile)) {
+
+            flex-direction: column;
+
+        }
+
+        &.gradient {
+            background-image: linear-gradient(#FaF7f7, #fff 47%);
+        }
+    }
+
+    &.gradient {
+        background-image: linear-gradient(#FaF7f7, #ac1616 47%);
+    }
+
+    &.hero {
+        height: 100vh;
+    }
+
+    
+}

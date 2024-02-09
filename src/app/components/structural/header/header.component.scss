@@ -473,3 +473,44 @@ $breakpoints: (
 }
 
 
+//faire une mixin pour les 
+.navigation-item {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  margin: 20px;
+ // color: $navigation-item-color;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: var(--body-font-family);
+  border-bottom: 1px solid #17a2b8;
+
+  &:hover {
+      cursor: pointer;
+      background-color: var( --color-surfaceAccent);
+  }
+}
+
+.navigation-item-active {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 25px;
+  padding: 10px 0px 10px 20px;
+  margin: 20px;
+ // color: $navigation-item-color;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: var( --color-surfaceAccent);
+
+  &:hover {
+      cursor: pointer;
+      background-color: var(--color-surfaceAccentHover);
+  }
+
+
+}
+

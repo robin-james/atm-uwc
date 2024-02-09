@@ -1,0 +1,348 @@
+@use "sass:map";
+
+
+$breakpoints: (
+    mobile: 600px,
+    tablet:960px,
+);
+
+
+@import '../mixins.scss';
+
+.atm-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    //margin:auto;
+    max-width: var(--container-width);
+
+    @media (max-width: map.get($breakpoints, mobile)) {
+
+        flex-direction: column;
+
+    }
+
+    &.fit-content {
+        width: fit-content;
+        align-items: center;
+    }
+
+    &.primary {
+        @include background(primary);
+    }
+    &.secondary {
+        @include background(secondary);
+    }
+    &.tertiary {
+        @include background(tertiary);
+    }
+    &.primaryContainer {
+        @include background(primaryContainer);
+    }
+    &.secondaryContainer {
+        @include background(secondaryContainer);
+    }
+    &.tertiaryContainer {
+        @include background(tertiaryContainer);
+    }
+    &.surface {
+        @include background(surface);
+    }
+    &.surfaceContainer {
+        @include background(surfaceContainer);
+    }
+    &.surfaceContainerLow {
+        @include background(surfaceContainerLow);
+    }
+    &.surfaceContainerHigh {
+        @include background(surfaceContainerHigh);
+    }
+    &.surfaceAccent {
+        @include background(surfaceAccent);
+    }
+
+    &.p-xxs {
+        @include padding(xxs, 1);
+    }
+    &.p-xs {
+        @include padding(xs, 1);
+    }
+
+    &.p-s {
+        @include padding(s, 1);
+    }
+    &.p-m {
+        @include padding(m, 1);
+    }
+    &.p-l {
+        @include padding(l, 1);
+    }
+    &.p-xl {
+        @include padding(xl, 1);
+    }
+    &.p-xxl {
+        @include padding(xxl, 1);
+    }
+
+    &.s-xxs {
+        @include sidepadding(xxs, 1);
+    }
+    &.s-xs {
+        @include sidepadding(xs, 1);
+    }
+
+    &.s-s {
+        @include sidepadding(s, 1);
+    }
+    &.s-m {
+        @include sidepadding(m, 1);
+    }
+    &.s-l {
+        @include sidepadding(l, 1);
+    }
+    &.s-xl {
+        @include sidepadding(xl, 1);
+    }
+    &.s-xxl {
+        @include sidepadding(xxl, 1);
+    }
+
+    &.x-center {
+        justify-content: center
+    }
+    &.x-flexend{
+        justify-content: flex-end
+    }
+    &.y-center {
+        align-items: center
+    }
+    &.y-flexend{
+        align-items:flex-end
+    }
+    &.space-between{
+        justify-content:space-between
+    }
+    &.space-around{
+        justify-content:space-around
+    }
+    &.space-evenly{
+        justify-content:space-evenly
+    }
+}
+
+.atm-box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+
+    &.fit-content {
+        width: fit-content;
+    }
+
+    &.primary {
+        @include background(primary);
+    }
+    &.secondary {
+        @include background(secondary);
+    }
+    &.tertiary {
+        @include background(tertiary);
+    }
+    &.primaryContainer {
+        @include background(primaryContainer);
+    }
+    &.secondaryContainer {
+        @include background(secondaryContainer);
+    }
+    &.tertiaryContainer {
+        @include background(tertiaryContainer);
+    }
+    &.surface {
+        @include background(surface);
+    }
+    &.surfaceContainer {
+        @include background(surfaceContainer);
+    }
+    &.surfaceContainerLow {
+        @include background(surfaceContainerLow);
+    }
+    &.surfaceContainerHigh {
+        @include background(surfaceContainerHigh);
+    }
+    &.surfaceAccent {
+        @include background(surfaceAccent);
+    }
+
+    &.p-xxs {
+        @include padding(xxs, 1);
+    }
+    &.p-xs {
+        @include padding(xs, 1);
+    }
+
+    &.p-s {
+        @include padding(s, 1);
+    }
+    &.p-m {
+        @include padding(m, 1);
+    }
+    &.p-l {
+        @include padding(l, 1);
+    }
+    &.p-xl {
+        @include padding(xl, 1);
+    }
+    &.p-xxl {
+        @include padding(xxl, 1);
+    }
+
+    &.s-xxs {
+        @include sidepadding(xxs, 1);
+    }
+    &.s-xs {
+        @include sidepadding(xs, 1);
+    }
+
+    &.s-s {
+        @include sidepadding(s, 1);
+    }
+    &.s-m {
+        @include sidepadding(m, 1);
+    }
+    &.s-l {
+        @include sidepadding(l, 1);
+    }
+    &.s-xl {
+        @include sidepadding(xl, 1);
+    }
+    &.s-xxl {
+        @include sidepadding(xxl, 1);
+    }
+
+    &.x-center {
+        justify-content: center
+    }
+    &.x-flexend{
+        justify-content: flex-end
+    }
+    &.y-center {
+        align-items: center
+    }
+    &.y-flexend{
+        align-items:flex-end
+    }
+    &.space-between{
+        justify-content:space-between
+    }
+    &.space-around{
+        justify-content:space-around
+    }
+    &.space-evenly{
+        justify-content:space-evenly
+    }
+
+    &.for-button{
+        width: fit-content;
+        padding: 0px 5px;
+            &:hover{
+                background-color: #e4e9f2;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+    }
+  
+}
+
+
+.atm-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+
+    &.fit-content {
+        width: fit-content;
+    }
+
+    &.primary {
+        @include background(primary);
+    }
+    &.secondary {
+        @include background(secondary);
+    }
+    &.tertiary {
+        @include background(tertiary);
+    }
+    &.primaryContainer {
+        @include background(primaryContainer);
+    }
+    &.secondaryContainer {
+        @include background(secondaryContainer);
+    }
+    &.tertiaryContainer {
+        @include background(tertiaryContainer);
+    }
+    &.surface {
+        @include background(surface);
+    }
+    &.surfaceContainer {
+        @include background(surfaceContainer);
+    }
+    &.surfaceContainerLow {
+        @include background(surfaceContainerLow);
+    }
+    &.surfaceContainerHigh {
+        @include background(surfaceContainerHigh);
+    }
+    &.surfaceAccent {
+        @include background(surfaceAccent);
+    }
+
+    &.p-xxs {
+        padding: var(--margin-xxs)
+    }
+    &.p-xs {
+        padding: var(--margin-xs)
+    }
+
+    &.p-s {
+        padding: var(--margin-s)
+    }
+    &.p-m {
+        padding: var(--margin-m)
+    }
+
+    &.y-center {
+        justify-content: center
+    }
+    &.y-flexend{
+        justify-content: flex-end
+    }
+    &.x-center {
+        align-items: center
+    }
+    &.x-flexend{
+        align-items:flex-end
+    }
+    &.space-between{
+        justify-content:space-between
+    }
+    &.space-around{
+        justify-content:space-around
+    }
+    &.space-evenly{
+        justify-content:space-evenly
+    }
+
+  
+}
+
+.atm-col > .body-medium {
+margin: 0;
+margin-block-end: 0;
+margin-block-start: 0;
+}

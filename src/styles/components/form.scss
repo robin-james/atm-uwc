@@ -1,0 +1,97 @@
+.form__group {
+    position: relative;
+    padding: 15px 0 0 0;
+    margin-top: 10px;
+    width: 100%;
+
+}
+
+.form__field {
+
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--color-primary);
+    outline: 0;
+    font-size: 18px;
+    color: var(--color-primary);
+    padding: 5px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown~.form__label {
+        font-size: 18px;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--color-primary);
+}
+
+.form__field:focus {
+    ~.form__label {
+        position: absolute;
+        top: 0;
+
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: var(--color-primary);
+
+    }
+
+    padding-bottom: 6px;
+
+    border-width: 2px;
+    border-image: linear-gradient(to right, var(--color-primary), var(--color-primary));
+    border-image-slice: 1;
+}
+
+select {
+    background-color: var(--color-surface);
+    width: 100%;
+   font-size: 16px;
+    color: #3b78e7;
+    padding: 5px 0px;
+    border-color: var(--color-surface);
+    border-bottom: solid 1px #b3b3b3;
+    font-family: 'Geologica', sans-serif;
+    outline: 0;
+    margin: 20px 0px;
+
+&:hover{
+    cursor: pointer;
+}
+    
+ 
+  
+   &:focus{
+    border: none;
+    outline: #3b78e7;
+   }
+   
+  }
+
+select option {
+    color: #3b78e7;
+    background-color: #ffffff;
+    border: none;
+    padding: 5px;
+    height: 20px;
+    margin: 10px;
+    font-size: 18px;
+    font-family: 'Geologica', sans-serif;
+
+
+}

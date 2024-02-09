@@ -1,0 +1,146 @@
+.atm-spacer {
+   
+    &__y {
+        width: 100%;
+        height: 1px;
+        background-color: none;
+
+        &.neutral {
+            background-color: var(--color-neutral);
+        }
+
+        &.onPrimary {
+            background-color: var(--color-onPrimary);
+        }
+
+        &.onPrimaryContainer {
+            background-color: var(--color-onPrimaryContainer);
+        }
+
+        &.onSurface {
+            background-color: var(--color-onSurface);
+        }
+
+        &.onSurfaceAccent {
+            background-color:var(--color-onSurfaceAccent);
+        }
+
+        &.onSecondary {
+            background-color: var(--color-onSecondary);
+        }
+
+        &.onSecondaryContainer {
+            background-color: var(--color-onSecondaryContainer);
+        }
+
+        &.onTertiary {
+            background-color: var(--color-onTertiary);
+        }
+
+        &.onTertiaryContainer {
+            background-color: var(--color-onTertiaryContainer);
+        }
+
+        &.xxs {
+            margin: var(--margin-xxs) 0px var(--margin-xxs) 0px;
+        }
+
+        &.xs {
+            margin: var(--margin-xs) 0px var(--margin-xs) 0px;
+        }
+
+        &.s {
+            margin: var(--margin-s) 0px var(--margin-s) 0px;
+        }
+
+        &.m {
+            margin: var(--margin-m) 0px var(--margin-m) 0px;
+        }
+
+        &.xl {
+            margin: var(--margin-l) 0px var(--margin-l) 0px;
+        }
+
+        &.xl {
+            margin: var(--margin-xl) 0px var(--margin-xl) 0px;
+        }
+
+        &.xxl {
+            margin: var(--margin-xxl) 0px var(--margin-xxl) 0px;
+        }
+    }
+
+    &__x {
+        
+        height: 100%;
+        width: 1px;
+        background-color: none;
+        //border-right: 1px solid none;
+
+        &.neutral {
+            background-color:var(--color-neutral);
+        }
+
+        &.onPrimary {
+            background-color:var(--color-onPrimary);
+        }
+
+        &.onPrimaryContainer {
+            background-color:var(--color-onPrimaryContainer);
+        }
+
+        &.onSurface {
+            background-color:var(--color-onSurface);
+        }
+
+        &.onSurfaceAccent {
+            background-color:var(--color-onSurfaceAccent);
+        }
+
+        &.onSecondary {
+            background-color:var(--color-onSecondary);
+        }
+
+        &.onSecondaryContainer {
+            background-color:var(--color-onSecondaryContainer);
+        }
+
+        &.onTertiary {
+            background-color:var(--color-onTertiary);
+        }
+
+        &.onTertiaryContainer {
+            background-color:var(--color-onTertiaryContainer);
+        }
+
+        &.xxs {
+            margin: 0px var(--margin-xxs) 0px var(--margin-xxs);
+        }
+
+        &.xs {
+            margin: 0px var(--margin-xs) 0px var(--margin-xs);
+        }
+
+        &.s {
+            margin: 0px var(--margin-s) 0px var(--margin-s);
+        }
+
+        &.m {
+            margin: 0px var(--margin-m) 0px var(--margin-m);
+        }
+
+        &.xl {
+            margin: 0px var(--margin-l) 0px var(--margin-l);
+        }
+
+        &.xl {
+            margin: 0px var(--margin-xl) 0px var(--margin-xl);
+        }
+
+        &.xxl {
+            margin: 0px var(--margin-xxl) 0px var(--margin-xxl);
+        }
+    }
+
+
+}

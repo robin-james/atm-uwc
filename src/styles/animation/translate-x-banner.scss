@@ -1,0 +1,110 @@
+.adg-animation-box{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.box2{
+    position: absolute;
+  
+    border-radius: 6px;
+    height: 100%;
+    width: fit-content;
+    line-height: 95px;
+    text-align: center;
+
+    font-size: 11px;
+    transition: 1s ease-in-out;
+     animation: earthOrbit 30s linear ;
+    animation-iteration-count: infinite;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+  .box3{
+    position: absolute;
+
+    border-radius: 6px;
+    height: 100%;
+    width: fit-content;
+    line-height: 95px;
+    text-align: center;
+
+    font-size: 11px;
+    transition: 1s ease-in-out;
+     animation: earthOrbitt 30s linear ;
+    animation-iteration-count: infinite;
+   // animation-delay: 40s;
+   display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .box3 > img {
+    height: 100px;
+    width: 200px;
+    margin: 10px 20px;
+    object-fit: contain;
+  }
+  .box2 > img {
+    height: 100px;
+    width: 200px;
+    margin: 10px 20px;
+    object-fit: contain;
+  }
+
+  .slide-decoration-right {
+    z-index: 1;
+    width: 150px;
+    position: absolute;
+    height: 100%;
+    background-image: linear-gradient(270deg, var(--color-surface) 23%, rgba(255, 255, 255, 0));
+    position: 100%;
+    top: 0%;
+    bottom: 0%;
+    left: auto;
+    right: 0%;
+}
+.slide-decoration-left {
+    z-index: 1;
+    width: 150px;
+    height: 100%;
+    background-image: linear-gradient(90deg, var(--color-surface) 23%, rgba(255, 255, 255, 0));
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    right: auto;
+    left: 0%;
+}
+  .icon-logo-box {
+    //background-color: aqua;
+    height: 100px;
+    width: 200px;
+    margin: 10px 20px;
+    object-fit: contain;
+  }
+  
+  
+  
+  @keyframes earthOrbit {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform:translateX(-100%);
+    }
+  }
+  @keyframes earthOrbitt{
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform:translateX(0%);
+    }
+  }

@@ -1,8 +1,142 @@
+
 /* You can add global styles to this file, and also import other style files */
-:root{
-    --body-font-family : 'arial';
-    --color-primary : blue;
+
+@supports (-webkit-overflow-scrolling: touch) {
+  select,
+  textarea,
+  input {
+    font-size: 18px;
+  }
 }
-body{
+
+@import '../src/styles/typography.scss';
+@import '../src/styles/buttons.scss';
+@import '../src/styles/layout/column.scss';
+@import '../src/styles/layout/row.scss';
+@import '../src/styles/layout/container.scss';
+@import '../src/styles/layout/spacer.scss';
+@import '../src/styles/layout/grid.scss';
+@import '../src/styles/layout/margin.scss';
+@import '../src/styles/layout/section.scss';
+@import '../src/styles/media/image.scss';
+@import '../src/styles/animation/translate-x-banner.scss';
+@import '../src/styles/components/card.scss';
+@import '../src/styles/components/chips.scss';
+@import '../src/styles/components/navbar.scss';
+@import '../src/styles/components/form.scss';
+
+:root {
+
+    --container-width : 1080px;
+
+    --margin-xxs: 10px;
+    --margin-xs: 20px;
+    --margin-s: 50px;
+    --margin-m: 75px;
+    --margin-l: 100px;
+    --margin-xl: 125px;
+    --margin-xxl: 150px;
+
+    --border-radius: 25px;
+    --button-border-radius:10px;
+
+    --color-primary : #ff5b0f ; 
+    --color-primaryContainer : #ffe4d7 ; 
+    --color-onPrimary : #ffffff ; 
+    --color-onPrimaryContainer : #441500 ; 
+    
+    --color-surface : #fcfbfa ; 
+    --color-surfaceContainer : #fbf0eb ; 
+    --color-surfaceContainerLow : #f7e7df ; 
+    --color-surfaceContainerHigh : #fbf5f3 ; 
+    --color-surfaceContainerLowest : #e3c4b5 ; 
+    --color-surfaceContainerHighest : #ffffff ; 
+    
+    --color-surfaceAccent : #f7cbb7 ; 
+    --color-onSurface : #1b0900 ; 
+    --color-onSurfaceAccent : #872b00 ; 
+    --color-surfaceAccentHover : #e7b69f ;
+    
+    --color-outline : #c9c1bd ; 
+    
+    --color-success : #2acf35 ; 
+    --color-onSuccess : #ffffff ; 
+    --color-info : #1e2feb ; 
+    --color-onInfo : #ffffff ; 
+    --color-warn : #eb1e1e ; 
+    --color-onWarn : #ffffff ; 
+    --color-successContainer : #dbf8dd ; 
+    --color-onSuccessContainer : #0b340d ; 
+    --color-infoContainer : #d9dcfc ; 
+    --color-onInfoContainer : #050a3d ; 
+    --color-warnContainer : #fcd9d9 ; 
+    --color-onWarnContainer : #3d0505 ; 
+    
+    --color-surfaceDark : #4d3e38 ; 
+    --color-surfaceContainerDark : #594840 ; 
+    --color-surfaceContainerLowDark : #5b4e49 ; 
+    --color-surfaceContainerHighDark : #45332b ; 
+    --color-surfaceContainerLowestDark : #291e19 ; 
+    --color-surfaceContainerHighestDark : #534741 ; 
+    
+    --color-secondary : #0fb3ff ; 
+    --color-secondaryContainer : #d7f2ff ; 
+    --color-onSecondary : #ffffff ; 
+    --color-onSecondaryContainer : #002e44 ; 
+    
+    --color-tertary : #969679 ; 
+    --color-tertaryContainer : #edede9 ; 
+    --color-onTertary : #ffffff ; 
+    --color-onTertaryContainer : #26261e ;
+
+    --color-text :#26261e;
+    --color-mid-text: #67696e;
+
+    --font-margin-coef: 0.5;
+
+    --display-font-family: "Moderat Regular";
+    --display-font-size-ref: 4.5rem;
+    --display-tracking: -2;
+    --display-line-height: 1.2;
+    --display-font-weight: 400;
+
+    --body-font-family: "Moderat Regular";
+    --font-size-ref: 1rem;
+    --body-line-height: 1.2;
+    --body-tracking: 0.2;
+    --body-font-weight: 400;
+
+
+    --title-tracking: 0.1;
+    --title-font-weight: 600;
+    --title-line-height: 1.2;
+
+    --headline-tracking: 0;
+    --headline-font-weight: 600;
+    --headline-line-height: 1.1;
+
+    --label-regular-font-weight: 400;
+    --overline-font-family: "Moderat Regular";
+    --label-overline-font-size-ref: 1rem;
+    --label-overline-font-weight: 400;
+    --label-overline-line-height: 1.2;
+    --label-overline-tracking: 0.2;
+
+    --label-caption-font-size-ref: 0.8rem;
+    --label-caption-font-weight: 800;
+}
+
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
     font-family: var(--body-font-family);
+    overflow-x: hidden;
+    background-color: var(--color-surface)
 }
+
+
+
+
+
+

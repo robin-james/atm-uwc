@@ -12,7 +12,15 @@
         
     </div>
 }@else{
-    <div id="section2" [innerHtml]="htmlFront | sanitize"></div>
+    
+
+    @if(isModule){
+        <div id="module">
+            <ng-template #TemplateRefAnchor></ng-template>
+        </div>
+    }@else{
+        <div id="section2" [innerHtml]="htmlFront | sanitize"></div>
+    }
 }
 
 
