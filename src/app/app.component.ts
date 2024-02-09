@@ -30,7 +30,7 @@ export class AppComponent {
         // set Favicon
         //var _faviconUrl : any = metadata.variables.assets.favicon
         this.meta.setFavicon(metadata.variables.assets.favicon)
-        console.log(metadata.variables.assets.favicon)
+        
 
         //set User Custom Style
         //import css
