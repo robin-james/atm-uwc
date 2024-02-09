@@ -8,7 +8,14 @@
             <ng-template #TemplateRefAnchor></ng-template>
         </div>
     }@else{
-        <div id="section2" [innerHtml]="htmlFront | sanitize"></div>
+        <div id="Hero" [innerHtml]="htmlHero | sanitize"></div>
+
+        @defer (on viewport) {
+            <div id="fullPage" [innerHtml]="htmlFront | sanitize"></div>    
+        }
+        @placeholder {
+            <div><p>PLACEHOLDER</p></div>
+        }
     }
 
 

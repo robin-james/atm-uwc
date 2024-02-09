@@ -26,15 +26,13 @@ export class ContentComponent implements OnInit {
   meta = inject(Meta)
   titl = inject(Title)
 
-
-
   _sections!: any[]
   loaded: boolean = false
   domain: string = _signalDomain()
   htmlFront!: string
+  htmlHero!:string
   _isHomepage!: boolean
   _pageUrl!: string | null
-
   isModule:boolean = false
 
   @ViewChild('TemplateRefAnchor', { static: false, read: ViewContainerRef }) templateRefAnchor!: ViewContainerRef
@@ -46,16 +44,14 @@ export class ContentComponent implements OnInit {
  ) {
 
   }
+
   ngOnInit(): void {
    
     if (this.domain == '') {
       console.log('localhost')
 
     } else {
-      
-      
 
-       
         if (this.route.routeConfig?.path == '') {
           this._pageUrl = _signalHomepage()
        
@@ -66,18 +62,13 @@ export class ContentComponent implements OnInit {
      
         this.sectionInitApi(this._pageUrl!)
 
-
-      
-
     }
 
   }
 
-
-
   getSectionsApi(page: string) {
 
-    const url = 'https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app/'+page
+    const url = 'https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app/'+page+'/hero'
 
     return this.http.get(url)
   }
@@ -86,7 +77,7 @@ export class ContentComponent implements OnInit {
 
     this.getSectionsApi(page).subscribe((data: any) => {
      
-
+      console.log(data)
       this.isModule = data.isModule
 
 
@@ -100,17 +91,23 @@ export class ContentComponent implements OnInit {
         this.loaded = true
 
       }else{
-        this.htmlFront = data.htmlFront
+        this.htmlHero = data.htmlFront
         _signalLoader.update(() => 'end')
         this.loaded = true
    
         this.setMeta(data.metadata.name, data.metadata.title, data.metadata.metadescription, data.metadata.keywords)
+
+
+        this.http.get( 'https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app/'+page)
+        .subscribe((page : any)=>{
+          this.htmlFront = page.htmlFront
+        })
+
       }
       
     })
 
   }
-
 
   setMeta(pageName: string, SEOtitle: string, SEOmeta: string, SEOkeywords: string[]) {
 
