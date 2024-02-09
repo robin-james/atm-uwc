@@ -20,6 +20,61 @@ export function app(): express.Express {
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
+  server.get('/sitemap.xml', async (req, res) => {
+
+  
+    const domain = req.header("x-forwarded-host")!.toString()
+  
+
+      const reponse : any = await fetch('https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app');
+
+      const siteMetadata = await reponse.json()
+  
+    const mapping = siteMetadata.mapping
+    const prefix = 'https://'
+  
+  
+    const urls = mapping.map((element : any) => {
+      return `<url>
+   <loc>`+ prefix + domain + `/` + element.loc + `</loc>
+   <lastmod>`+ element.lastmod + `</lastmod>
+   </url>`
+    }).join('')
+  
+    async function generateSitemap() {
+  
+      return `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  `+ urls + `
+  </urlset>`
+    }
+  
+  
+    res.set('Content-Type', 'application/xml')
+  
+    const xml = await generateSitemap()
+  
+    res.write(xml);
+    res.end()
+  })
+  
+  
+  
+  server.get('/robots.txt', (req, res) => {
+    // const f = req.hostname
+  
+    const d = req.header("x-forwarded-host")!.toString()
+  
+    const _robotTemplate =
+      `User-agent: *
+  Allow: /
+      
+  Sitemap: https://`+ d + `/sitemap.xml`
+    res.type('text/plain');
+    res.send(_robotTemplate);
+  
+  });
+
   server.get('*.*', express.static(browserDistFolder, {
     maxAge: '1y'
   }));
