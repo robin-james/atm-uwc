@@ -36,7 +36,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
             http
             .get(url)
             .subscribe((res: any) => {
-              resolve()
+         
              
               _signalSiteMetadata.set(res)
 
@@ -60,7 +60,7 @@ export function initApp(http:HttpClient, router:Router):Promise<void>{
               //init variables
               _signalVariables.set(res.variables)
               _signalHomepage.set(res.homepage)
-            
+              resolve()
              
               
              

@@ -8,7 +8,7 @@
 
         <div class="adg-navbar-navigation">
 
-            <a class="adg-navigation-box" *ngFor="let item of _navigationFire.item" aria-controls="navigationDrawer">
+            <div class="adg-navigation-box" *ngFor="let item of _navigationFire.item" aria-controls="navigationDrawer">
                 <span class="material-symbols-outlined" *ngIf="item.icon != ''" aria-controls="navigationDrawer">
                     {{item.icon}}
                 </span>
@@ -24,7 +24,7 @@
                     routerLinkActive="adg-navigation-box-active" routerLink="{{item.path}}"
                     ariacontrols="navigationDrawer">{{item.label}}</a>
 
-            </a>
+                </div>
 
             <div *ngFor="let CTA of _navigationFire.CTAs">
                 <div [ngClass]="CTA.class" (click)="navigate(CTA.path)">
