@@ -21,25 +21,8 @@ export function app(): express.Express {
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
 
-  server.get('/index.html', (req, res, next) => {
-   
-    const d = req.header("x-forwarded-host")!.toString()
-  
-    const _redirectURL= "http://example.com"
-   
-    res.redirect(301, _redirectURL);
-    return next();
-  
-  });
-  server.get('/index.php', (req, res, next) => {
-   
-    const d = req.header("x-forwarded-host")!.toString()
-  
-    const _redirectURL= "http://example.com" 
-   
-    res.redirect(301, _redirectURL);
-    return next();
-  });
+
+
 
 
 
