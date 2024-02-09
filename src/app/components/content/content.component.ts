@@ -96,6 +96,7 @@ export class ContentComponent implements OnInit {
         setTimeout(()=>{
           this.templateRefAnchor.createComponent(component)
         },1)
+        _signalLoader.update(() => 'end')
         this.loaded = true
 
       }else{

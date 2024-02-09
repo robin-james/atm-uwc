@@ -20,6 +20,29 @@ export function app(): express.Express {
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
+
+  server.get('/index.html', (req, res) => {
+   
+    const d = req.header("x-forwarded-host")!.toString()
+  
+    const _redirectURL= `https://`+ d 
+   
+    res.redirect(301, _redirectURL);
+  
+  });
+  server.get('/index.php', (req, res) => {
+   
+    const d = req.header("x-forwarded-host")!.toString()
+  
+    const _redirectURL= `https://`+ d 
+   
+    res.redirect(301, _redirectURL);
+  
+  });
+
+
+
+
   server.get('/sitemap.xml', async (req, res) => {
 
   

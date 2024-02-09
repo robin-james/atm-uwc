@@ -1,6 +1,7 @@
 
 .load {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -9,6 +10,7 @@
     background-color: rgb(255, 255, 255);
     color: #000000;
     place-items: center;
+    z-index: 99;
   
 }
 
