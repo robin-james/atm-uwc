@@ -37,8 +37,6 @@ ngOnInit(): void {
       ob[element.key]=element.value
     })
 
-
-
     this._details = ob
 
 
