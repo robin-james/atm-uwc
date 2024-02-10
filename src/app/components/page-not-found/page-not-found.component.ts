@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { _signalDomain } from '../../shared/signals';
+import { Component, OnInit } from '@angular/core';
+import { _signalDomain, _signalLoader } from '../../shared/signals';
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,8 +8,12 @@ import { _signalDomain } from '../../shared/signals';
   templateUrl: './page-not-found.component.html',
   styleUrl: './page-not-found.component.scss'
 })
-export class PageNotFoundComponent {
+export class PageNotFoundComponent implements OnInit {
 
   domain = _signalDomain()
+
+  ngOnInit(): void {
+    _signalLoader.update(() => 'end')
+  }
 
 }

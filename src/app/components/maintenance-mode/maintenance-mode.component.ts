@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { _signalLoader } from '../../shared/signals';
 @Component({
   selector: 'app-maintenance-mode',
   standalone: true,
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './maintenance-mode.component.html',
   styleUrl: './maintenance-mode.component.scss'
 })
-export class MaintenanceModeComponent {
+export class MaintenanceModeComponent implements OnInit {
+
+  ngOnInit(): void {
+    _signalLoader.update(() => 'end')
+  }
 
 }
