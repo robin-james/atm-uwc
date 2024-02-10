@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../structural/header/header.component';
 import { FooterComponent } from '../structural/footer/footer.component';
 import { Meta, Title } from '@angular/platform-browser';
-import { _signalDomain, _signalHomepage,_signalLoader,_signalRoutes,_signalSiteId,_signalSiteMetadata,_signalVariables } from '../../shared/signals';
+import { _signalDomain, _signalHomepage,_signalLoader,_signalRoutes,_signalSiteMetadata } from '../../shared/signals';
 import { HttpClient } from '@angular/common/http';
 import { MetaService } from '../../shared/meta.service';
 import { ActivatedRoute } from '@angular/router';
@@ -23,22 +23,19 @@ import { ComponentLoaderService } from '../../shared/component-loader.service';
 export class ContentComponent implements OnInit {
 
 
-  meta = inject(Meta)
-  titl = inject(Title)
-
-  _sections!: any[]
   loaded: boolean = false
   domain: string = _signalDomain()
   htmlFront!: string
   htmlHero!:string
   _isHomepage!: boolean
-  _pageUrl!: string | null
-  isModule:boolean = false
+  _pageName!: string | null
+  isModule : boolean = false
+
 
   @ViewChild('TemplateRefAnchor', { static: false, read: ViewContainerRef }) templateRefAnchor!: ViewContainerRef
 
   constructor(private http: HttpClient,
-    private seoService: MetaService,
+    private meta: MetaService,
     private route: ActivatedRoute,
     private loader:ComponentLoaderService
  ) {
@@ -53,37 +50,34 @@ export class ContentComponent implements OnInit {
     } else {
 
         if (this.route.routeConfig?.path == '') {
-          this._pageUrl = _signalHomepage()
-       
+
+          this._pageName = _signalHomepage()      
           this._isHomepage = true
+
         } else {
-          this._pageUrl = this.route.routeConfig?.path!
+
+          this._pageName = this.route.routeConfig?.path!
+
         }
      
-        this.sectionInitApi(this._pageUrl!)
+        this.setPage(this._pageName!)
 
     }
 
   }
 
-  getSectionsApi(page: string) {
 
-    const url = 'https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app/'+page+'/hero'
 
-    return this.http.get(url)
-  }
+  setPage(page : string) {
+    const url = 'https://api-airtrame.web.app/v0/firestore/host/'+this.domain+'/'+page+'/hero'
 
-  sectionInitApi(page : string) {
+    this.http.get(url).subscribe((data: any) => {
 
-    this.getSectionsApi(page).subscribe((data: any) => {
-     
-      console.log(data)
       this.isModule = data.isModule
+     
+      if(data.isModule){
 
-
-      if(this.isModule){
-
-        const component = this.loader.setComponent(data.atmModule.selector)!
+        const component = this.loader.setComponent(data.selector)!
         setTimeout(()=>{
           this.templateRefAnchor.createComponent(component)
         },1)
@@ -91,14 +85,16 @@ export class ContentComponent implements OnInit {
         this.loaded = true
 
       }else{
+        //If static page Init Hero
         this.htmlHero = data.htmlFront
         _signalLoader.update(() => 'end')
         this.loaded = true
-   
-        this.setMeta(data.metadata.name, data.metadata.title, data.metadata.metadescription, data.metadata.keywords)
+        
+        //set Page SEO Meta
+        this.meta.setMeta(this.domain,this._isHomepage,data.metadata.name, data.metadata.title, data.metadata.metadescription, data.metadata.keywords)
 
-
-        this.http.get( 'https://api-airtrame.web.app/v0/firestore/host/airtrame-uwc.web.app/'+page)
+        //Then init full page
+        this.http.get( 'https://api-airtrame.web.app/v0/firestore/host/'+this.domain+'/'+page)
         .subscribe((page : any)=>{
           this.htmlFront = page.htmlFront
         })
@@ -109,56 +105,7 @@ export class ContentComponent implements OnInit {
 
   }
 
-  setMeta(pageName: string, SEOtitle: string, SEOmeta: string, SEOkeywords: string[]) {
 
-
-
-    const existingMetadescription = document.querySelectorAll("meta[name='description']")
-    existingMetadescription.forEach((element) => {
-      element.remove()
-    })
-
-    const existingKeywords = document.querySelectorAll("meta[name='keywords']")
-    existingKeywords.forEach((element) => {
-      element.remove()
-    })
-
-
-
-    if (SEOmeta != undefined) {
-      this.meta.addTags([
-        { name: 'description', content: SEOmeta }
-
-      ]);
-    }
-
-
-    if (SEOkeywords != undefined) {
-      this.meta.addTags([
-        { name: 'keywords', content: SEOkeywords.join(', ') }
-      ]);
-    }
-
-
-    if (SEOtitle != undefined) {
-      this.titl.setTitle(SEOtitle)
-    } else {
-
-
-      this.titl.setTitle(pageName!)
-
-    }
-    const canonical = 'https://' + _signalDomain()
-    if (!this._isHomepage) {
-
-      this.seoService.updateCanonicalUrl(canonical + '/' + pageName);
-    } else {
-
-      this.seoService.updateCanonicalUrl(canonical);
-    }
-
-
-  }
 
 
 

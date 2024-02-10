@@ -3,6 +3,7 @@ import { _signalRoutes, _signalSiteMetadata } from '../../../shared/signals';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SafeUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { MetaService } from '../../../shared/meta.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FooterComponent implements OnInit{
 
-  constructor(private sanitize:DomSanitizer){}
+  constructor(private sanitize:DomSanitizer, private meta:MetaService){}
 
   siteMetadata : any = _signalSiteMetadata()
   _navigationFire : any = this.siteMetadata.navigation
@@ -25,20 +26,13 @@ export class FooterComponent implements OnInit{
 
   
 ngOnInit(): void {
+  
   this.setUserVariables()
  
 }
   setUserVariables(){
 
-    let ob : any ={}
-
-    this.userVars.forEach((element)=>{
+    this._details = this.meta.setUserVariables(this.userVars)
   
-      ob[element.key]=element.value
-    })
-
-    this._details = ob
-
-
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { _signalDomain } from '../../shared/signals';
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './page-not-found.component.scss'
 })
 export class PageNotFoundComponent {
+
+  domain = _signalDomain()
 
 }
